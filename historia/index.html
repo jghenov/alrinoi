@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     .timeline {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 2rem 2rem 6rem;
       position: relative;
@@ -24,65 +24,155 @@
       top: 2rem;
       bottom: 2rem;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--gold-dim) 10%, var(--gold-dim) 90%, transparent);
+      background: linear-gradient(to bottom, transparent, var(--gold-dim) 5%, var(--gold-dim) 95%, transparent);
     }
-    .timeline-era {
+
+    /* Ciclo header */
+    .ciclo-header {
       padding-left: 3.5rem;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
       position: relative;
     }
-    .timeline-era::before {
-      content: '✦';
+    .ciclo-header::before {
+      content: '◆';
       position: absolute;
-      left: calc(2rem - 0.5em + 1px);
-      top: 0.15em;
+      left: calc(2rem - 0.55em + 1px);
+      top: 0.1em;
       color: var(--gold);
-      font-size: 0.9rem;
+      font-size: 1rem;
       background: var(--black);
-      padding: 0.1rem 0;
+      padding: 0.15rem 0;
     }
-    .era-cycle {
+    .ciclo-number {
       font-family: var(--font-heading);
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gold-dim);
-      margin-bottom: 0.4rem;
-    }
-    .timeline-era h2 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--gold-light);
       margin-bottom: 0.3rem;
     }
-    .era-dates {
+    .ciclo-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+    .ciclo-dates {
       font-family: var(--font-heading);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
+      letter-spacing: 0.12em;
       display: block;
+      margin-bottom: 0.5rem;
     }
-    .timeline-era p {
+    .ciclo-desc {
       color: var(--text-dim);
+      font-style: italic;
       font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 0.8rem;
+      line-height: 1.7;
     }
-    .coming-soon-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.8rem;
-      border: 1px dashed var(--border);
-      color: var(--text-dim);
+
+    /* Era card */
+    .era-card {
+      padding-left: 3.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .era-card::before {
+      content: '✦';
+      position: absolute;
+      left: calc(2rem - 0.45em + 1px);
+      top: 0.2em;
+      color: var(--gold-dim);
+      font-size: 0.75rem;
+      background: var(--black);
+      padding: 0.1rem 0;
+    }
+    .era-inner {
+      padding: 1.4rem 1.6rem;
+      background: linear-gradient(145deg, var(--dark-card), rgba(13,15,20,0.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: border-color var(--transition);
+    }
+    .era-card:hover .era-inner {
+      border-color: var(--border-glow);
+    }
+    .era-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    .era-duration {
       font-family: var(--font-heading);
       font-size: 0.65rem;
       letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .era-events {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .era-events li {
+      position: relative;
+      padding-left: 1.2rem;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.3rem;
+    }
+    .era-events li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      opacity: 0.5;
+    }
+
+    /* Ciclo divider */
+    .ciclo-divider {
+      padding-left: 3.5rem;
+      margin: 3rem 0 2.5rem;
+    }
+    .ciclo-divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Active campaign badge */
+    .campaign-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(139,26,26,0.12);
+      border: 1px solid rgba(139,26,26,0.35);
+      color: #c45555;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       border-radius: 2px;
-      margin-top: 0.8rem;
-      opacity: 0.5;
+      margin-top: 0.6rem;
+    }
+    .campaign-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #c45555;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.2; }
     }
   </style>
 </head>
@@ -114,47 +204,244 @@
 
   <div class="timeline">
 
-    <div class="timeline-era reveal">
-      <p class="era-cycle">1º Ciclo</p>
-      <h2>Era dos Primeiros Nomes</h2>
-      <span class="era-dates">0 — ~8.000</span>
-      <p>Os Deuses Primordiais moldam as raças e a Trama flui livre pelo mundo. Os dragões, filhos das constelações, são venerados como seres divinos. Os primeiros feiticeiros surgem — mortais que despertam poder não por estudo, mas por instinto.</p>
-      <p>Em Khalvor, nascem os primeiros pactos espontâneos. Em Khamalan, o cometa dos dragões cai e o Hidrium sagrado é gerado. O mundo respira em equilíbrio.</p>
+    <!-- ═══════════════════════════════════ 1º CICLO -->
+    <div class="ciclo-header reveal">
+      <p class="ciclo-number">1º Ciclo · ~11.300</p>
+      <h2>O Nascimento do Mundo</h2>
+      <span class="ciclo-dates">??? — 11.300</span>
+      <p class="ciclo-desc">O nascimento do mundo, dos planos e das primeiras consciências. A realidade ainda era maleável e os deuses eram ecos em formação.</p>
     </div>
 
-    <div class="timeline-era reveal">
-      <p class="era-cycle">2º Ciclo</p>
-      <h2>Era dos Magoi & Ghostfog</h2>
-      <span class="era-dates">~8.000 — 17.400</span>
-      <p>Thescier, o grande mago, empunha o Véu da Noite e sela a Inversão Sombria. Sua doutrina — a magia como ciência, não dom — se espalha e militariza. Nascem os Magoi. A perseguição aos feiticeiros começa.</p>
-      <p>A forja de Thammuz-Kar colapsa. Ghostfog é criada. Gigantes migram ao norte, anões são dispersos, e os Warforgeds — feridos pela traição — fogem para os ermos do sul.</p>
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era da Formação</h3>
+        <span class="era-duration">Duração incerta · ??? — 0</span>
+        <ul class="era-events">
+          <li>Surgem os Deuses Primordiais, dimensões, leis metafísicas e a primeira centelha da consciência.</li>
+          <li>Alrinoi se forma.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="timeline-era reveal">
-      <p class="era-cycle">3º Ciclo</p>
-      <h2>Era da Distorção & Reinos Estilhaçados</h2>
-      <span class="era-dates">17.400 — 20.900</span>
-      <p>A queda de Niakhon e de Vorkaloth salva o mundo da dissolução — mas destrói a estabilidade da Trama. Feitiços explodem sem aviso. Sonhos tomam forma. Os deuses se calam. Por mil anos, a confiança entre raças se torna fraqueza, e as alianças se fragmentam em paranoia armada.</p>
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era dos Primeiros Nomes</h3>
+        <span class="era-duration">7.900 anos · 0 — 7.900</span>
+        <ul class="era-events">
+          <li>Surgem os Deuses Maiores e os Menores.</li>
+          <li>As Constelações são formadas.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="timeline-era reveal">
-      <p class="era-cycle">4º Ciclo</p>
-      <h2>Era dos Herdeiros da Magia</h2>
-      <span class="era-dates">20.900 — 26.500</span>
-      <p>A Era dos Magoi codifica a magia. As doutrinas se tornam arsenais. As Linhagens Armadas desenvolvem feitiços que fazem o tecido da realidade sangrar — Chamas Eternas, Mares Invertidos, Campos de Amnésia Coletiva. A Guerra das Raças devora o mundo.</p>
-      <p>A feitiçaria é criminalizada. Khalvor resiste. O Império Kondoriano lança suas sementes.</p>
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era do Sopro Original</h3>
+        <span class="era-duration">3.400 anos · 7.900 — 11.300</span>
+        <ul class="era-events">
+          <li>Primeiras civilizações espirituais.</li>
+          <li>A Trama é percebida como um rio divino. Nasce o conceito de alma.</li>
+          <li>Pactos cósmicos e línguas arcanas surgem com as raças ancestrais.</li>
+          <li>Todas as raças ganham vida.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="timeline-era reveal">
-      <p class="era-cycle">5º Ciclo — Presente</p>
-      <h2>Era do Grande Esquecimento</h2>
-      <span class="era-dates">26.500 — hoje</span>
-      <p>O Vazio seduziu Niakhon e parte das constelações a trair os deuses, aprisionando-os numa prisão interdimensional. A Rede Sombria — oito feiticeiros ancestrais aprisionados como fontes vivas de energia psíquica — sustenta o esquecimento global.</p>
-      <p>O Ordo Oblivionis se aproxima. O mundo não sabe que está esquecendo seus próprios deuses. E a Constelae Arcania alimenta a máquina do silêncio.</p>
-      <div class="coming-soon-badge">⚔ Campanha Ativa</div>
+    <div class="ciclo-divider"><hr></div>
+
+    <!-- ═══════════════════════════════════ 2º CICLO -->
+    <div class="ciclo-header reveal">
+      <p class="ciclo-number">2º Ciclo · 11.300 — 17.400</p>
+      <h2>Guerra, Glória e Ruína</h2>
+      <span class="ciclo-dates">11.300 — 17.400</span>
+      <p class="ciclo-desc">Um ciclo de guerra, glória e ruína. As grandes linhagens brilham intensamente — e queimam.</p>
     </div>
 
-  </div>
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era dos Sangues Antigos</h3>
+        <span class="era-duration">2.500 anos · 11.300 — 13.800</span>
+        <ul class="era-events">
+          <li>Dominância de clãs élficos, dracônicos e infernais.</li>
+          <li>Surgem as primeiras relíquias-artefato.</li>
+          <li>Surge a Forja de Thammuz-Kar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era de Thescier</h3>
+        <span class="era-duration">1.800 anos · 13.800 — 15.600</span>
+        <ul class="era-events">
+          <li>Thescier, o primeiro Magoi, e seu dragão Hiruzai equilibram forças entre planos e reinos.</li>
+          <li>Suas descobertas da magia começam a ser veneradas pelas raças.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era da Inversão Sombria</h3>
+        <span class="era-duration">1.800 anos · 15.600 — 17.400</span>
+        <ul class="era-events">
+          <li>Tentativa de domínio de Niakhon com seu dragão, Vorkaloth.</li>
+          <li>Corrupção da Trama.</li>
+          <li>União de Thescier com diversos povos, incluindo os Warforgeds, para enfrentar Niakhon.</li>
+          <li>Fim do ciclo após a queda de Thescier e Vorkaloth.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ciclo-divider"><hr></div>
+
+    <!-- ═══════════════════════════════════ 3º CICLO -->
+    <div class="ciclo-header reveal">
+      <p class="ciclo-number">3º Ciclo · 17.400 — 24.100</p>
+      <h2>Colapso, Instabilidade e Renascimento</h2>
+      <span class="ciclo-dates">17.400 — 24.100</span>
+      <p class="ciclo-desc">Um ciclo de colapso, instabilidade e renascimento. O mundo oscila entre loucura e iluminação.</p>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era da Distorção</h3>
+        <span class="era-duration">1.500 anos · 17.400 — 18.900</span>
+        <ul class="era-events">
+          <li>Resíduos da guerra planar.</li>
+          <li>A magia enlouquece — ninguém sabe dominá-la.</li>
+          <li>Aberrações e horrores extraplanares surgem.</li>
+          <li>Queda de Thammuz-Kar.</li>
+          <li>Ghostfog fica inabitada. Êxodo dos gigantes e anões do continente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era dos Reinos Estilhaçados</h3>
+        <span class="era-duration">2.000 anos · 18.900 — 20.900</span>
+        <ul class="era-events">
+          <li>Reinos isolados e conflitos locais.</li>
+          <li>Com tanta instabilidade e raças se realocando, as tensões se intensificam.</li>
+          <li>Inicia-se o histórico conflito entre raças.</li>
+          <li>Deuses Raciais duelam entre si.</li>
+          <li>Deuses Maiores e Menores entram em instabilidade.</li>
+          <li>A maioria dos pactos se esvai.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era dos Magoi</h3>
+        <span class="era-duration">1.700 anos · 20.900 — 22.600</span>
+        <ul class="era-events">
+          <li>Após anos de busca por resquícios de Thescier, surgem os Magoi como doutrina arcano-filosófica.</li>
+          <li>A Trama é estudada e começa a ser manipulada com precisão.</li>
+          <li>As raças começam a utilizar a manipulação da Trama como arma fatal nos conflitos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era do Renascimento</h3>
+        <span class="era-duration">1.500 anos · 22.600 — 24.100</span>
+        <ul class="era-events">
+          <li>Renascimento cultural.</li>
+          <li>As primeiras redes de ensino começam a surgir.</li>
+          <li>Surgimento de grandes bibliotecas, descobertas alquímicas e arte.</li>
+          <li>A Constelae Arcania é oficialmente fundada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ciclo-divider"><hr></div>
+
+    <!-- ═══════════════════════════════════ 4º CICLO -->
+    <div class="ciclo-header reveal">
+      <p class="ciclo-number">4º Ciclo · 24.100 — 27.800</p>
+      <h2>A Ordem se Impõe</h2>
+      <span class="ciclo-dates">24.100 — 27.800</span>
+      <p class="ciclo-desc">O mundo se reorganiza. A ordem se impõe. Um novo Império molda continentes.</p>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era das Leis de Ferro</h3>
+        <span class="era-duration">1.100 anos · 24.100 — 25.200</span>
+        <ul class="era-events">
+          <li>O Hidrium é descoberto no hemisfério leste, nas Ilhas de Vulcões.</li>
+          <li>Genasi do Fogo e Anões entram em conflito cruel pelo domínio das Ilhas.</li>
+          <li>O Hidrium já vinha sendo minerado no oeste, em Ryushima — lá chamado de Allenium.</li>
+          <li>Novas leis de comércio se estabelecem.</li>
+          <li>O continente de Domari começa sua evolução.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era dos Herdeiros da Magia</h3>
+        <span class="era-duration">1.300 anos · 25.200 — 26.500</span>
+        <ul class="era-events">
+          <li>Magocracias locais em expansão.</li>
+          <li>Conselhos ocultos surgem.</li>
+          <li>As guerras entre as raças se intensificam, arrasando terras e pessoas.</li>
+          <li>Os Magoi se diluem no sistema.</li>
+          <li>Os feiticeiros começam a ser caçados pela doutrina dos Magoi.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era do Primeiro Trono</h3>
+        <span class="era-duration">1.300 anos · 26.500 — 27.800</span>
+        <ul class="era-events">
+          <li>Ápice das guerras entre raças — marca a história de Alrinoi.</li>
+          <li>Uma família poderosa de tieflings ganha influência por seu poder e incentivo ao fim da guerra.</li>
+          <li>Uma força militar de Draconatos se forma no leste, comandada pelos tieflings.</li>
+          <li>Eles encerram diversas guerras entre raças em Vorathiel.</li>
+          <li>Nasce o Império Kondoriano. Sua influência se torna absoluta no leste.</li>
+          <li>As doutrinas de Alrinoi são divididas em hemisférios.</li>
+          <li>Raças são realocadas, retiradas de suas terras como prova do fim dos conflitos.</li>
+          <li>A Constelae Arcania ganha mais relevância.</li>
+          <li>O Vazio intervém — os Deuses são traídos e aprisionados. Sobram apenas as Constelações.</li>
+          <li>As pessoas se esquecem dos Deuses, como uma memória apagada.</li>
+          <li>Cultos começam a surgir para as Constelações, substituindo os antigos templos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ciclo-divider"><hr></div>
+
+    <!-- ═══════════════════════════════════ 5º CICLO -->
+    <div class="ciclo-header reveal">
+      <p class="ciclo-number">5º Ciclo · 27.800 — 27.939</p>
+      <h2>Glória Aparente</h2>
+      <span class="ciclo-dates">27.800 — 27.939 · <strong style="color:var(--gold)">Presente</strong></span>
+      <p class="ciclo-desc">Um ciclo que começou com glória e paz. Mas a paz esconde feridas que voltam a sangrar.</p>
+    </div>
+
+    <div class="era-card reveal">
+      <div class="era-inner">
+        <h3 class="era-name">Era do Império Kondoriano</h3>
+        <span class="era-duration">139 anos · 27.800 — 27.939</span>
+        <ul class="era-events">
+          <li>Estabilidade aparente.</li>
+          <li>Forte extração e comércio de Hidrium.</li>
+          <li>Riqueza, cidades mágicas e comércio planar.</li>
+          <li>Intensificação da caça aos feiticeiros e proibição do uso de magia instintiva.</li>
+          <li>Expansão do Império para Draethon Norte e Sul.</li>
+          <li>Propaganda anti-oeste do Império, julgando os povos ocidentais como selvagens.</li>
+        </ul>
+        <div class="campaign-badge">Campanha Ativa</div>
+      </div>
+    </div>
+
+  </div><!-- .timeline -->
 
   <footer class="site-footer">
     <div class="footer-inner">
