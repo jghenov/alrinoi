@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossário — Alrinoi</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    .glossario-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+    .glossario-search {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .glossario-search:focus { border-color: var(--border-glow); }
+    .glossario-search::placeholder { color: var(--text-dim); font-style: italic; }
+
+    .glossario-letter {
+      margin-bottom: 2.5rem;
+    }
+    .letter-header {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gold-dim);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .glossario-entry {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(180,150,80,0.08);
+    }
+    .glossario-entry:last-child { border-bottom: none; }
+    .entry-term {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .entry-category {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.4rem;
+      margin-left: 0.6rem;
+    }
+    .glossario-entry p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .no-results {
+      text-align: center;
+      color: var(--text-dim);
+      font-style: italic;
+      padding: 3rem 0;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">O Mundo</a></li>
+        <li><a href="/continentes/">Continentes</a></li>
+        <li><a href="/faccoes/">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/" class="active">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">O Léxico de Alrinoi</p>
+    <h1>Glossário</h1>
+    <p>Termos, conceitos, instituições e palavras-chave do mundo de Alrinoi.</p>
+  </div>
+
+  <div class="glossario-container">
+    <input type="text" class="glossario-search" id="glossSearch" placeholder="Buscar um termo...">
+
+    <div id="glossarioContent">
+
+      <div class="glossario-letter">
+        <div class="letter-header">A</div>
+        <div class="glossario-entry" data-term="allenium">
+          <div class="entry-term">Allenium <span class="entry-category">Mineral / Magia</span></div>
+          <p>Mineral mágico de origem dracônica, extraído principalmente em Ryushima e Khamalan. É o principal combustível para artefatos mágicos e tecnomancia. Ryushima abriga a maior reserva do mundo, com técnicas de aproveitamento de até 96% do minério extraído.</p>
+        </div>
+        <div class="glossario-entry" data-term="astralismo">
+          <div class="entry-term">Astralismo <span class="entry-category">Religião</span></div>
+          <p>Doutrina religiosa dominante em Vorathiel. Afirma que as oito Constelações são as divindades supremas e guardiãs da magia e da vida. Símbolo: um círculo contendo oito estrelas conectadas. Líderes espirituais: os Magoi da Constelae Arcania.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">C</div>
+        <div class="glossario-entry" data-term="constelae arcania">
+          <div class="entry-term">Constelae Arcania <span class="entry-category">Instituição</span></div>
+          <p>A mais poderosa instituição mágica de Vorathiel. Apresentada como guardiã do ensino e das leis da magia, na verdade censura o conhecimento, caça feiticeiros e alimenta secretamente o Vazio com Trama pura. Seus líderes são os Magoi.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">D</div>
+        <div class="glossario-entry" data-term="dissidismo">
+          <div class="entry-term">Dissidismo <span class="entry-category">Religião</span></div>
+          <p>Ideologia que sugere que as Constelações não são deuses conscientes, mas condutores de energia mágica manipulados por forças mais antigas. Acredita na existência do Vazio além das Constelações. Símbolo: um círculo negro vazio com braços brancos curvados.</p>
+        </div>
+        <div class="glossario-entry" data-term="dracônico">
+          <div class="entry-term">Dracônico <span class="entry-category">Linguagem</span></div>
+          <p>A língua dos dragões, uma das mais antigas e reverenciadas formas de comunicação em Alrinoi. Amplamente usada no estudo da magia por sua conexão direta com as constelações divinas. Os tomos mais poderosos de magia estão escritos em Dracônico.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">G</div>
+        <div class="glossario-entry" data-term="ghostfog">
+          <div class="entry-term">Ghostfog <span class="entry-category">Local / Evento</span></div>
+          <p>Região criada pelo colapso da forja anã de Thammuz-Kar durante a Era da Distorção. Quando o coração da forja explodiu, parte das chamas derreteu para o subsolo, criando essa área de névoa arcana persistente. Marco da ruptura entre anões, gigantes e Warforgeds.</p>
+        </div>
+        <div class="glossario-entry" data-term="grande esquecimento">
+          <div class="entry-term">Grande Esquecimento <span class="entry-category">Evento / Magia</span></div>
+          <p>Ritual executado pelo Vazio com a traição de Niakhon. Aprisionou os deuses numa prisão interdimensional. É mantido ativo pela Rede Sombria e pelas Torres de Estabilização espalhadas por Alrinoi. A população vai esquecendo os deuses gradualmente, enfraquecendo-os.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">H</div>
+        <div class="glossario-entry" data-term="hidrium">
+          <div class="entry-term">Hidrium <span class="entry-category">Mineral / Sagrado</span></div>
+          <p>Material sagrado gerado nas crateras do Cometa Caído em Khamalan. Guardado pelos clãs draconatos como herança divina de Solvaran. Considerado o resquício do fogo divino que acendeu a Trama. Qualquer estrangeiro que tente obtê-lo sem permissão é considerado ladrão de chamas.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">M</div>
+        <div class="glossario-entry" data-term="magoi">
+          <div class="entry-term">Magoi <span class="entry-category">Classe / Instituição</span></div>
+          <p>Os sábios-sacerdotes da Constelae Arcania. Refinaram e militarizaram os ensinamentos de Thescier: a magia como ciência controlável, não dom. Defendem que apenas quem estuda profundamente a magia deve usá-la. Lideram a perseguição aos feiticeiros em todo o mundo.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">N</div>
+        <div class="glossario-entry" data-term="nûrion">
+          <div class="entry-term">Nûrion <span class="entry-category">Divindade</span></div>
+          <p>O Guardião da Trama. Divindade responsável por tecer o tecido invisível por onde a magia se propaga em Alrinoi. O Vazio não tem poder de reivindicar a Trama diretamente — pois ela é domínio exclusivo de Nûrion.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">O</div>
+        <div class="glossario-entry" data-term="ordo oblivionis">
+          <div class="entry-term">Ordo Oblivionis <span class="entry-category">Ritual / Ameaça</span></div>
+          <p>O ritual mais profano de Alrinoi. O plano final do Vazio: apagar todos os deuses — tanto os Maiores quanto os Menores — da existência, tornando-se soberana absoluta da entropia, silêncio e esquecimento. Se completado, o mundo de Alrinoi e todos os mundos do multiverso são apagados.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">R</div>
+        <div class="glossario-entry" data-term="rede sombria">
+          <div class="entry-term">Rede Sombria <span class="entry-category">Magia / Conspiração</span></div>
+          <p>Uma teia mental global criada aprisionando oito feiticeiros ancestrais — um para cada constelação — como fontes vivas de energia psíquica. Junto com as Torres de Estabilização, mantém o Grande Esquecimento ativo em toda Alrinoi.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">T</div>
+        <div class="glossario-entry" data-term="trama">
+          <div class="entry-term">A Trama <span class="entry-category">Cosmologia / Magia</span></div>
+          <p>O tecido invisível por onde a magia se propaga em Alrinoi. Tecida por Nûrion, o Guardião. Através dela, magias, feitiços e encantamentos são possíveis. Quando perturbada — como na Era da Distorção — a própria realidade se torna instável.</p>
+        </div>
+        <div class="glossario-entry" data-term="torres de estabilização">
+          <div class="entry-term">Torres de Estabilização <span class="entry-category">Artefato / Conspiração</span></div>
+          <p>Obeliscos de pedra viva, repletos de runas, espalhados por todo Alrinoi. Originalmente criados pela Casa Korr para selar rupturas mágicas. Secretamente reaproveitados pela Constelae Arcania e o Vazio para sustentar o Grande Esquecimento e suprimir o poder dos deuses.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">V</div>
+        <div class="glossario-entry" data-term="vazio">
+          <div class="entry-term">O Vazio <span class="entry-category">Divindade / Antagonista</span></div>
+          <p>Um dos Deuses Maiores. Age em segredo há Eras para executar o Ordo Oblivionis. Seduziu Niakhon e parte das constelações a trair os criadores. Representa a entropia, o silêncio e o esquecimento absoluto. Não pode reivindicar a Trama diretamente, então opera através de intermediários e do enfraquecimento gradual dos outros deuses.</p>
+        </div>
+      </div>
+
+      <div class="glossario-letter">
+        <div class="letter-header">W</div>
+        <div class="glossario-entry" data-term="warforgeds">
+          <div class="entry-term">Warforgeds <span class="entry-category">Raça</span></div>
+          <p>Construtos forjados com fragmentos da alma de Hiruzai, o dragão de Thescier. Criados pelos anões de Thammuz-Kar em pactos agora desfeitos. Fugiram para os ermos do sul após o colapso da forja, culpando a ganância anã pela tragédia. Habitam principalmente Draethon Sul.</p>
+        </div>
+      </div>
+
+    </div><!-- #glossarioContent -->
+
+    <p class="no-results" id="noResults">Nenhum termo encontrado para essa busca.</p>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/">O Mundo</a>
+        <a href="/continentes/">Continentes</a>
+        <a href="/historia/">História</a>
+        <a href="/glossario/">Glossário</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Glossário Search
+    const searchInput = document.getElementById('glossSearch');
+    const entries = document.querySelectorAll('.glossario-entry');
+    const letters = document.querySelectorAll('.glossario-letter');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      let found = 0;
+
+      letters.forEach(letter => {
+        let letterHasVisible = false;
+        letter.querySelectorAll('.glossario-entry').forEach(entry => {
+          const term = entry.getAttribute('data-term') || '';
+          const text = entry.textContent.toLowerCase();
+          const match = !q || term.includes(q) || text.includes(q);
+          entry.style.display = match ? '' : 'none';
+          if (match) { found++; letterHasVisible = true; }
+        });
+        letter.style.display = letterHasVisible ? '' : 'none';
+      });
+
+      noResults.style.display = found === 0 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

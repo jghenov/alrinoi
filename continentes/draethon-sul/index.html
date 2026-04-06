@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draethon Sul — Alrinoi</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    .wip-section{position:relative;z-index:2;max-width:700px;margin:0 auto;padding:4rem 2rem 8rem;text-align:center}
+    .wip-icon{font-size:3rem;margin-bottom:1.5rem;opacity:.4}
+    .wip-section h2{font-family:var(--font-heading);font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:1rem}
+    .wip-section p{color:var(--text-dim);font-style:italic;margin-bottom:2rem}
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></a>
+      <ul class="nav-links">
+        <li><a href="/">O Mundo</a></li>
+        <li><a href="/continentes/" class="active">Continentes</a></li>
+        <li><a href="/faccoes/">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+  <div class="continent-detail-hero">
+    <div class="breadcrumb">
+      <a href="/">Alrinoi</a><span>›</span>
+      <a href="/continentes/">Continentes</a><span>›</span>
+      <span>Draethon Sul</span>
+    </div>
+    <h1>Draethon Sul</h1>
+    <p class="hero-desc">A lore deste continente está sendo transcrita para o Arquivo de Alrinoi.</p>
+  </div>
+  <div class="wip-section">
+    <div class="wip-icon">✦</div>
+    <h2>Em Construção</h2>
+    <p>Os escribas de Alrinoi ainda estão catalogando os segredos deste continente. Volte em breve.</p>
+    <a href="/continentes/" class="btn-ghost">← Voltar aos Continentes</a>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/">O Mundo</a><a href="/continentes/">Continentes</a><a href="/faccoes/">Facções</a><a href="/historia/">História</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

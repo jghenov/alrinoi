@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alrinoi — O Mundo Além da Trama</title>
+  <meta name="description" content="Alrinoi é um mundo onde a magia deriva das oito constelações divinas. Explore continentes, facções, dragões e a Trama que une toda a existência.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">O Mundo</a></li>
+        <li><a href="/continentes/">Continentes</a></li>
+        <li><a href="/faccoes/">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Um mundo tecido pela magia das estrelas</p>
+      <h1 class="hero-title">ALRINOI</h1>
+      <p class="hero-subtitle">Além da Trama</p>
+      <p class="hero-lore">
+        A Trama é o tecido invisível por onde a magia se propaga — tecida por Nûrion, o Guardião.<br>
+        Oito constelações. Oito deuses. Um mundo à beira do esquecimento.
+      </p>
+      <div class="hero-cta">
+        <a href="/continentes/" class="btn-primary">Explorar o Mundo</a>
+        <a href="/historia/" class="btn-ghost">A História</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Role para explorar</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <section class="constellations-section">
+    <div class="section-header">
+      <div class="section-rule"></div>
+      <h2 class="section-title">As Oito Constelações</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="section-intro">Cada deus-constelação governa uma escola de magia. São a fonte de todo poder em Alrinoi — e os guardiões de seu destino.</p>
+    <div class="constellations-grid">
+      <div class="constellation-card reveal" data-school="Abjuração">
+        <div class="const-glyph">⬡</div>
+        <h3>Viarleoth</h3>
+        <span class="const-school">Abjuração</span>
+        <p>O Escudo Eterno. Protetor das fronteiras entre mundos e guardião dos segredos selados.</p>
+      </div>
+      <div class="constellation-card reveal" data-school="Conjuração">
+        <div class="const-glyph">◈</div>
+        <h3>Olzorus</h3>
+        <span class="const-school">Conjuração</span>
+        <p>O Invocador dos Véus. Aquele que tece portais entre planos e convoca o que não deveria existir.</p>
+      </div>
+      <div class="constellation-card reveal" data-school="Divinação">
+        <div class="const-glyph">◉</div>
+        <h3>Odeiss</h3>
+        <span class="const-school">Divinação</span>
+        <p>O Olho que Tudo Vê. Deus do conhecimento oculto, das profecias e dos futuros possíveis.</p>
+      </div>
+      <div class="constellation-card reveal" data-school="Encantamento">
+        <div class="const-glyph">❋</div>
+        <h3>Elrim</h3>
+        <span class="const-school">Encantamento</span>
+        <p>A Voz que Seduz. Senhor da mente, da persuasão e dos vínculos que não se quebram.</p>
+      </div>
+      <div class="constellation-card reveal" data-school="Evocação">
+        <div class="const-glyph">✦</div>
+        <h3>Hieromon</h3>
+        <span class="const-school">Evocação</span>
+        <p>O Trovão Primordial. Força bruta da criação — fogo, raio, gelo e o estrondo do mundo nascendo.</p>
+      </div>
+      <div class="constellation-card reveal" data-school="Ilusão">
+        <div class="const-glyph">◇</div>
+        <h3>Ilrur</h3>
+        <span class="const-school">Ilusão</span>
+        <p>O Tecelão de Sombras. Mestre do que não é real — e do que parece mais real do que tudo.</p>
+      </div>
+      <div class="constellation-card featured reveal" data-school="Necromancia">
+        <div class="const-glyph">☽</div>
+        <h3>Niakhon</h3>
+        <span class="const-school">Necromancia</span>
+        <p>O Deus Caído. Seduzido pelo Vazio, sua traição desencadeou o Grande Esquecimento e ameaça apagar os deuses da existência.</p>
+        <span class="const-tag">⚠ Traidor</span>
+      </div>
+      <div class="constellation-card reveal" data-school="Transmutação">
+        <div class="const-glyph">⟁</div>
+        <h3>Seti</h3>
+        <span class="const-school">Transmutação</span>
+        <p>O Transformador de Essências. Governa a mudança, a alquimia e a reescrita da natureza das coisas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="continents-preview">
+    <div class="section-header">
+      <div class="section-rule"></div>
+      <h2 class="section-title">Os Continentes</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="section-intro">Alrinoi se estende por sete grandes continentes — cada um com sua história, seus povos e seus segredos.</p>
+    <div class="continents-grid">
+      <a href="/continentes/vorathiel/" class="continent-card reveal" data-continent="vorathiel">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Império</span>
+          <h3>Vorathiel</h3>
+          <p>Berço do Império Kondoriano. Terra de poder político, militarização mágica e domínios que escondem segredos sombrios.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/khalvor/" class="continent-card reveal" data-continent="khalvor">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Reinos Livres</span>
+          <h3>Khalvor</h3>
+          <p>Doze Casas de feiticeiros travam jogos de poder arcano. O único continente onde a magia no sangue é lei.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/khamalan/" class="continent-card reveal" data-continent="khamalan">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Terra dos Dragões</span>
+          <h3>Khamalan</h3>
+          <p>O continente mais fechado do mundo. Clãs draconatos guardam o Hidrium sagrado e as crateras do Cometa Caído.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/draethon-norte/" class="continent-card reveal" data-continent="draethon">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Natureza Viva</span>
+          <h3>Draethon Norte</h3>
+          <p>Onde o mundo ainda respira como uma criatura viva. Selvas que cantam, Círculos de poder e a Trama como ecossistema.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/domari/" class="continent-card reveal" data-continent="domari">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Tecnomancia</span>
+          <h3>Domari</h3>
+          <p>Celeiro das inovações tecnomágicas. Onde magia e mecânica se fundem em engenhos que desafiam os limites do possível.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/ryushima/" class="continent-card reveal" data-continent="ryushima">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Santuário</span>
+          <h3>Ryushima</h3>
+          <p>Ilha-fortaleza filosófica. Maior reserva de Allenium do mundo, governada pela família Yeng com mão de ferro.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+      <a href="/continentes/draethon-sul/" class="continent-card reveal" data-continent="draethon-sul">
+        <div class="continent-card-bg"></div>
+        <div class="continent-card-content">
+          <span class="continent-tag">Exílio & Memória</span>
+          <h3>Draethon Sul</h3>
+          <p>Terra dos Warforgeds e dos Monges VharKan. Um polo de reclusão onde as palavras são medidas e a dor, contida.</p>
+          <span class="continent-explore">Explorar →</span>
+        </div>
+      </a>
+    </div>
+    <div class="section-cta">
+      <a href="/continentes/" class="btn-primary">Ver Todos os Continentes</a>
+    </div>
+  </section>
+
+  <section class="lore-highlight">
+    <div class="lore-highlight-inner">
+      <div class="lore-highlight-text reveal">
+        <span class="lore-label">A Cosmologia</span>
+        <h2>O Vazio Avança</h2>
+        <p>Um dos Deuses Maiores age em segredo há Eras. Seu plano: o <em>Ordo Oblivionis</em> — o ritual que apaga todos os deuses da existência através do esquecimento de seus devotos.</p>
+        <p>A Constelae Arcania, apresentada como guardiã da magia, é na verdade uma manipuladora que alimenta uma força oculta. E o mundo de Alrinoi não sabe que já está esquecendo.</p>
+        <a href="/historia/" class="btn-ghost">Descobrir a Verdade</a>
+      </div>
+      <div class="lore-highlight-quote reveal">
+        <blockquote>
+          <p>"Se a população se esquecesse dos deuses, com o tempo, sua força diminuiria a ponto de ficarem fatalmente vulneráveis."</p>
+          <cite>— Atos da Campanha, O Plano do Vazio</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/continentes/">Continentes</a>
+        <a href="/faccoes/">Facções</a>
+        <a href="/historia/">História</a>
+        <a href="/glossario/">Glossário</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

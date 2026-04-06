@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorathiel — Alrinoi</title>
+  <meta name="description" content="Vorathiel, berço do Império Kondoriano. Terra de poder político, militarização mágica e dez domínios sob a dinastia Akerblad.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    .dominio-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1rem; margin:1.5rem 0 2rem; }
+    .dominio-card { padding:1.2rem 1.4rem; background:var(--dark-card); border:1px solid var(--border); border-radius:var(--radius); transition:all var(--transition); }
+    .dominio-card:hover { border-color:var(--border-glow); }
+    .dominio-card h4 { font-family:var(--font-heading); font-size:.95rem; color:var(--gold-light); margin-bottom:.3rem; }
+    .dominio-card .regent { font-size:.8rem; color:var(--text-dim); font-style:italic; margin-bottom:.4rem; }
+    .dominio-card .spec { font-size:.82rem; color:var(--text-dim); }
+    .dominio-card .tag { font-size:.6rem; margin-bottom:.5rem; }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></a>
+      <ul class="nav-links">
+        <li><a href="/">O Mundo</a></li>
+        <li><a href="/continentes/" class="active">Continentes</a></li>
+        <li><a href="/faccoes/">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <div class="continent-detail-hero">
+    <div class="breadcrumb">
+      <a href="/">Alrinoi</a><span>›</span>
+      <a href="/continentes/">Continentes</a><span>›</span>
+      <span>Vorathiel</span>
+    </div>
+    <div class="continent-tags">
+      <span class="tag">Continente</span>
+      <span class="tag tag-red">Império Kondoriano</span>
+      <span class="tag">Poder Político</span>
+      <span class="tag">Militarização Mágica</span>
+    </div>
+    <h1>Vorathiel</h1>
+    <p class="hero-desc">O berço do poder. Onde o Império Kondoriano ergueu sua sombra sobre o mundo — dez domínios, uma dinastia, e segredos que podem apagar os próprios deuses.</p>
+  </div>
+
+  <div class="content-with-sidebar">
+    <div class="lore-body" style="max-width:100%;padding:0">
+
+      <div class="lore-quote reveal">
+        <p>"Foi em Vorathiel que nasceram os primeiros protótipos de poder imperial — sementes que germinariam na dinastia Akerblad e no Império Kondoriano."</p>
+        <cite>— Eventos Históricos de Alrinoi</cite>
+      </div>
+
+      <h2 class="reveal">O Continente</h2>
+      <p class="reveal">Vorathiel é o continente da centralização política e da militarização mágica. Enquanto outros territórios seguiram caminhos de equilíbrio ou isolamento, Vorathiel escolheu o controle. Os Magoi — sacerdotes-sábios da Constelae Arcania — tornaram-se conselheiros arcanos e doutrinadores do poder imperial.</p>
+      <p class="reveal">É o lar da maioria humana de Alrinoi, embora tieflings, elfos, halflings, genasi e orcs habitem seus vários domínios — sempre sob a hierarquia racial que o Império mantém com mão de ferro.</p>
+
+      <h2 class="reveal">O Império Kondoriano</h2>
+      <p class="reveal">O Império nasceu do Reino de Kondor, próspero por sua localização estratégica no leste de Vorathiel. Sob a família Akerblad, o que era um reino tornou-se um Império que engloba o continente inteiro em dez domínios, cada um governado por um membro da dinastia.</p>
+      <p class="reveal">No centro está o Imperador Kalius Akerblad. A separação racial permanece em vigor: cada raça tem seu lugar designado, e mobilidade entre domínios exige autorização imperial.</p>
+
+      <h2 class="reveal">Os Dez Domínios</h2>
+      <div class="dominio-grid reveal">
+        <div class="dominio-card"><span class="tag tag-red">Capital</span><h4>Kondor</h4><p class="regent">Imperador Kalius Akerblad</p><p class="spec">Capital imperial, política e comando. Predominantemente Tieflings.</p></div>
+        <div class="dominio-card"><h4>Boreal</h4><p class="regent">Valeran Akerblad</p><p class="spec">Defesa, gelo e táticas de fronteira. Humanos e Elfos. Capital: Thamdarul.</p></div>
+        <div class="dominio-card"><h4>Setentrional</h4><p class="regent">Dharadius Akerblad</p><p class="spec">Agricultura e produção mágica. Halflings e Genasi do ar.</p></div>
+        <div class="dominio-card"><h4>Aquilonial</h4><p class="regent">Nephadius Akerblad</p><p class="spec">Comércio interestadual. Tieflings e Humanos.</p></div>
+        <div class="dominio-card"><h4>Meridional</h4><p class="regent">Aravine Akerblad</p><p class="spec">Cultura, arte e diplomacia. Elfos e Aasimar.</p></div>
+        <div class="dominio-card"><h4>Poente</h4><p class="regent">Mardani Akerblad</p><p class="spec">Força bélica e estratégias. Orcs e Hobgoblins.</p></div>
+        <div class="dominio-card"><h4>Alvor</h4><p class="regent">Orquini Akerblad</p><p class="spec">Luz, religião e ensino. Humanos e Genasi da luz.</p></div>
+        <div class="dominio-card"><h4>Selvagem</h4><p class="regent">Zarxus Akerblad</p><p class="spec">Monitoramento dos Reinos Livres. Draconatos e Meio-orcs.</p></div>
+        <div class="dominio-card"><h4>Estelar</h4><p class="regent">Damvir Akerblad</p><p class="spec">Magia e astrologia. Gnomos.</p></div>
+        <div class="dominio-card"><h4>Vesperal</h4><p class="regent">Sharius Akerblad</p><p class="spec">Comércio planar e portais. Loxodontes e Drows.</p></div>
+      </div>
+
+      <h2 class="reveal">A Constelae Arcania</h2>
+      <p class="reveal">Apresentada como guardiã do ensino e das leis da magia, a Constelae Arcania é a instituição mais poderosa de Vorathiel. Os Magoi pregam que a magia é uma linguagem universal — não um dom, não uma bênção.</p>
+      <p class="reveal">Mas por baixo dessa fachada de ordem, a Constelae Arcania censura o conhecimento, caça os feiticeiros e utiliza secretamente a Trama para alimentar uma força oculta — o Vazio.</p>
+
+      <h2 class="reveal">A Ordem dos Escudos Celestiais</h2>
+      <p class="reveal">Elite draconata e símbolo do poder Akerblad. Criada antes da formação oficial do Império, esses mercenários juraram lealdade à família tiefling em troca de títulos, ouro e honra. Servem como guarda imperial e como inquisidores mágicos — caçando feiticeiros renegados por todo Vorathiel.</p>
+
+    </div>
+    <aside>
+      <div class="sidebar-card reveal">
+        <h4>Informações</h4>
+        <div class="sidebar-stat"><span class="stat-label">Tipo</span><span class="stat-value">Continente Imperial</span></div>
+        <div class="sidebar-stat"><span class="stat-label">Governante</span><span class="stat-value">Kalius Akerblad</span></div>
+        <div class="sidebar-stat"><span class="stat-label">Sistema</span><span class="stat-value">Império / 10 Domínios</span></div>
+        <div class="sidebar-stat"><span class="stat-label">Raça dominante</span><span class="stat-value">Humanos, Tieflings</span></div>
+        <div class="sidebar-stat"><span class="stat-label">Magia</span><span class="stat-value">Regulamentada</span></div>
+        <div class="sidebar-stat"><span class="stat-label">Capital</span><span class="stat-value">Kondor</span></div>
+      </div>
+      <div class="sidebar-card reveal">
+        <h4>Facções Ativas</h4>
+        <div class="related-links">
+          <a href="/faccoes/">Constelae Arcania</a>
+          <a href="/faccoes/">Escudos Celestiais</a>
+          <a href="/faccoes/">Dinastia Akerblad</a>
+          <a href="/faccoes/">Os Magoi</a>
+        </div>
+      </div>
+      <div class="sidebar-card reveal">
+        <h4>Ver Também</h4>
+        <div class="related-links">
+          <a href="/continentes/khalvor/">Khalvor →</a>
+          <a href="/continentes/khamalan/">Khamalan →</a>
+          <a href="/historia/">A Ascensão do Império →</a>
+          <a href="/faccoes/">O Vazio →</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/">O Mundo</a><a href="/continentes/">Continentes</a><a href="/faccoes/">Facções</a><a href="/historia/">História</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

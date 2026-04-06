@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continentes — Alrinoi</title>
+  <meta name="description" content="Explore os continentes de Alrinoi: Vorathiel, Khalvor, Khamalan, Draethon, Domari, Ryushima e mais.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></a>
+      <ul class="nav-links">
+        <li><a href="/">O Mundo</a></li>
+        <li><a href="/continentes/" class="active">Continentes</a></li>
+        <li><a href="/faccoes/">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">O Mundo de Alrinoi</p>
+    <h1>Os Continentes</h1>
+    <p>Sete terras. Sete destinos. Uma Trama que os une — e os divide.</p>
+  </div>
+
+  <div class="continents-list">
+    <a href="/continentes/vorathiel/" class="continent-card reveal" data-continent="vorathiel" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Império</span><span class="tag tag-red">Dominante</span></div>
+        <h3>Vorathiel</h3>
+        <p>Berço do Império Kondoriano. Dez domínios sob a mão de ferro da dinastia Akerblad — Kondor, Boreal, Setentrional, Aquilonial, Meridional, Poente, Alvor, Selvagem, Estelar e Vesperal.</p>
+        <span class="continent-explore">Explorar Vorathiel →</span>
+      </div>
+    </a>
+    <a href="/continentes/khalvor/" class="continent-card reveal" data-continent="khalvor" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Reinos Livres</span><span class="tag tag-blue">Feitiçaria</span></div>
+        <h3>Khalvor</h3>
+        <p>Doze Casas de feiticeiros travam jogos de poder arcano há milênios. O único continente onde a magia no sangue é lei — e a Constelae Arcania ainda não domina completamente.</p>
+        <span class="continent-explore">Explorar Khalvor →</span>
+      </div>
+    </a>
+    <a href="/continentes/khamalan/" class="continent-card reveal" data-continent="khamalan" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Dragões</span><span class="tag tag-red">Isolado</span></div>
+        <h3>Khamalan</h3>
+        <p>O continente mais fechado e imprevisível de Alrinoi. Fronteiras de tempestades flamejantes. Os clãs draconatos guardam o Hidrium sagrado das crateras do Cometa Caído.</p>
+        <span class="continent-explore">Explorar Khamalan →</span>
+      </div>
+    </a>
+    <a href="/continentes/draethon-norte/" class="continent-card reveal" data-continent="draethon" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Natureza Viva</span><span class="tag tag-green">Trama Viva</span></div>
+        <h3>Draethon Norte</h3>
+        <p>Onde o mundo ainda respira como uma criatura viva. Cinco Círculos de poder sustentam o equilíbrio: Verde, Brumante, Vulcânico, Glacial e dos Ecos.</p>
+        <span class="continent-explore">Explorar Draethon Norte →</span>
+      </div>
+    </a>
+    <a href="/continentes/domari/" class="continent-card reveal" data-continent="domari" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Tecnomancia</span><span class="tag tag-purple">Inovação</span></div>
+        <h3>Domari</h3>
+        <p>Celeiro das inovações tecnomágicas de Alrinoi. Torres ambulantes, canhões de runas e engenhos que desafiam os limites do possível.</p>
+        <span class="continent-explore">Explorar Domari →</span>
+      </div>
+    </a>
+    <a href="/continentes/ryushima/" class="continent-card reveal" data-continent="ryushima" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Ilha-Santuário</span><span class="tag tag-blue">Allenium</span></div>
+        <h3>Ryushima</h3>
+        <p>Ilha-fortaleza filosófica e maior reserva de Allenium do mundo. A família real Yeng mantém controle absoluto — enquanto nas minas, uma realidade cruel se revela.</p>
+        <span class="continent-explore">Explorar Ryushima →</span>
+      </div>
+    </a>
+    <a href="/continentes/draethon-sul/" class="continent-card reveal" data-continent="draethon-sul" style="height:280px">
+      <div class="continent-card-bg"></div>
+      <div class="continent-card-content">
+        <div class="continent-tags" style="margin-bottom:0.4rem"><span class="tag">Exílio</span><span class="tag">Warforgeds</span></div>
+        <h3>Draethon Sul</h3>
+        <p>Terra dos Warforgeds e dos Monges VharKan. Exílio voluntário — onde as palavras são medidas e a dor, contida.</p>
+        <span class="continent-explore">Explorar Draethon Sul →</span>
+      </div>
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-symbol">✦</span><span class="logo-text">ALRINOI</span></div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/">O Mundo</a><a href="/continentes/">Continentes</a><a href="/faccoes/">Facções</a><a href="/historia/">História</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

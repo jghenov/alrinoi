@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facções — Alrinoi</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    .faccoes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+    .faccao-card {
+      padding: 2rem;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .faccao-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .faccao-card:hover { border-color: var(--border-glow); transform: translateY(-3px); }
+    .faccao-card:hover::before { opacity: 1; }
+    .faccao-card.faction-red { border-color: rgba(139,26,26,0.3); }
+    .faccao-card.faction-red::before { background: linear-gradient(to right, transparent, var(--crimson), transparent); }
+    .faccao-card.faction-purple { border-color: rgba(74,26,107,0.4); }
+    .faccao-card.faction-purple::before { background: linear-gradient(to right, transparent, var(--void), transparent); }
+
+    .faccao-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .faccao-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .faccao-card.faction-red h3 { color: #d45555; }
+    .faccao-card.faction-purple h3 { color: #a060d0; }
+
+    .faccao-card .faccao-type {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .faccao-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .faccao-alignment {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border);
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+    .align-neutral { color: var(--text-dim); border-color: var(--border); }
+    .align-evil { color: #c45555; border-color: rgba(139,26,26,0.4); }
+    .align-lawful { color: #6090d0; border-color: rgba(30,60,120,0.4); }
+    .align-chaotic { color: #a060d0; border-color: rgba(74,26,107,0.4); }
+    .align-good { color: #50a060; border-color: rgba(20,80,40,0.4); }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">O Mundo</a></li>
+        <li><a href="/continentes/">Continentes</a></li>
+        <li><a href="/faccoes/" class="active">Facções</a></li>
+        <li><a href="/historia/">História</a></li>
+        <li><a href="/glossario/">Glossário</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Os Poderes de Alrinoi</p>
+    <h1>Facções</h1>
+    <p>Os grupos que moldam — e destroem — o destino do mundo.</p>
+  </div>
+
+  <div class="faccoes-grid">
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">✦</div>
+      <h3>Constelae Arcania</h3>
+      <span class="faccao-type">Instituição Mágica</span>
+      <p>A guardiã oficial da magia de Alrinoi. Regula, ensina e persegue. Por baixo da fachada de ordem, alimenta secretamente o poder do Vazio. Seus Magoi controlam o conhecimento arcano de todo o mundo.</p>
+      <span class="faccao-alignment align-evil">Neutro Maligno</span>
+    </div>
+
+    <div class="faccao-card faction-red reveal">
+      <div class="faccao-icon">☽</div>
+      <h3>Cultistas de Niakhon</h3>
+      <span class="faccao-type">Culto / Necromancia</span>
+      <p>Seguidores do deus-constelação caído. Acreditam que a morte é o caminho para a verdade e que Niakhon foi traído — não traiu. Praticam rituais de necromancia que desafiam as leis da Constelae Arcania.</p>
+      <span class="faccao-alignment align-evil">Caótico Maligno</span>
+    </div>
+
+    <div class="faccao-card faction-purple reveal">
+      <div class="faccao-icon">◎</div>
+      <h3>O Vazio</h3>
+      <span class="faccao-type">Divindade / Antagonista Maior</span>
+      <p>Um dos Deuses Maiores. Trabalha em segredo há eras para executar o Ordo Oblivionis e apagar toda a existência. Não tem exércitos visíveis — opera através de manipulação, esquecimento e instituições corrompidas.</p>
+      <span class="faccao-alignment align-evil">Maligno Absoluto</span>
+    </div>
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">⚔</div>
+      <h3>Ordem dos Escudos Celestiais</h3>
+      <span class="faccao-type">Milícia Imperial</span>
+      <p>Elite draconata a serviço da dinastia Akerblad. Guardam imperadores, caçam feiticeiros renegados e executam a vontade do Império Kondoriano. Símbolo máximo do poder tiefling em Vorathiel.</p>
+      <span class="faccao-alignment align-lawful">Leal Neutro</span>
+    </div>
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">🜃</div>
+      <h3>Monges VharKan</h3>
+      <span class="faccao-type">Ordem Monástica</span>
+      <p>Os monges de Draethon Sul que buscam preservar o silêncio do mundo como resistência ao ruído da guerra. Guardiões da memória e da contenção — cada palavra dita com propósito, cada ação pesada de significado.</p>
+      <span class="faccao-alignment align-good">Leal Bom</span>
+    </div>
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">◈</div>
+      <h3>Os Olhos da Noite</h3>
+      <span class="faccao-type">Organização Secreta</span>
+      <p>Rede de espionagem e informação que opera nas sombras dos reinos. Seus agentes estão em cada corte, cada taverna, cada porto. Lealdade desconhecida — ou inexistente. Sabem de coisas que não deveriam.</p>
+      <span class="faccao-alignment align-neutral">Neutro Verdadeiro</span>
+    </div>
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">⬡</div>
+      <h3>Casas de Khalvor</h3>
+      <span class="faccao-type">Aristocracia Mágica</span>
+      <p>As doze Casas de feiticeiros que governam os reinos livres de Khalvor. Cada Casa tem sua filosofia, sua magia e seus segredos. Alavendros, Vaelir, Eryndor, Korr, Lurien e as outras travam jogos de poder há milênios.</p>
+      <span class="faccao-alignment align-neutral">Varia por Casa</span>
+    </div>
+
+    <div class="faccao-card reveal">
+      <div class="faccao-icon">⟁</div>
+      <h3>Dinastia Akerblad</h3>
+      <span class="faccao-type">Família Imperial</span>
+      <p>A família tiefling que governa o Império Kondoriano através dos dez domínios de Vorathiel. O Imperador Kalius Akerblad no centro, seus irmãos e primos como Condes. Poder absoluto — e segredos que podem destruir tudo.</p>
+      <span class="faccao-alignment align-lawful">Leal Maligno</span>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">ALRINOI</span>
+      </div>
+      <p class="footer-tagline">Um mundo tecido pela Trama. Uma história que ainda se escreve.</p>
+      <div class="footer-links">
+        <a href="/">O Mundo</a>
+        <a href="/continentes/">Continentes</a>
+        <a href="/faccoes/">Facções</a>
+        <a href="/historia/">História</a>
+      </div>
+      <p class="footer-copy">© 2025 Alrinoi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
